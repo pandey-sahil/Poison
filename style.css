@@ -1,0 +1,114 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+    height: 100%;
+    color: #fff;
+  width: 100%;
+  background: #000;
+  overflow-x: hidden;
+}
+
+.text-sm-16 {
+  font: 16px "fjalla one";
+  letter-spacing: -0.32px;
+  font-weight: 400;
+}
+
+.text-sm-24 {
+  font: 24px "fjalla one";
+  text-transform: uppercase;
+  letter-spacing: -0.32px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.text-large-360{
+    font: 1000px "six caps";
+    
+    line-height: 880px;
+}
+
+.nav-bar {
+  padding: 26px;
+}
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-links {
+  display: flex;
+  gap: 24px;
+}
+
+/* Slider container */
+.hero-slider-container {
+  width: 100%;
+  height: 270px;
+  overflow: hidden;
+  position: relative;
+}
+
+.hero-image-section {
+  display: flex;
+  width: auto;
+  transition: transform 1s ease-in-out;
+}
+
+.hero-image-section img {
+  width: 100vw;
+  height: 100%;
+  object-fit: cover;
+  object-position: bottom;
+  flex-shrink: 0;
+}
+
+
+.hero-text-container{
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    padding: 20px;
+}
+
+.hero-text-container h1{
+    z-index: 1;
+    position: absolute;
+    
+}
+
+.drag-ball{
+padding: -5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    cursor: grab;
+    /* top: 0; */
+    border-radius: 50%;
+    z-index: 3;
+    cursor: grab;
+    transform: translate(-50%, -50%);
+    user-select: none;
+    background: rgb(0, 0, 0);
+}
+.drag-ball img {
+    width: 100%; /* Full image width */
+    animation: rotate 4s linear infinite  ;
+    height: 100%; /* Full image height */
+}
+
+@keyframes rotate {
+    from{
+        rotate: 0deg;
+    }
+    to{
+        rotate: 360deg;
+    }
+    
+}
