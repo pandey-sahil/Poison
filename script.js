@@ -21,51 +21,86 @@ gsap.set(slider, { x: 0 });
 // Set interval to slide to the next image every 3 seconds
 setInterval(showNextImage, 3000);
 
-function matterjs() {
-    Draggable.create(".drag-ball", {
-        type: "x,y",
-        bounds: document.querySelector(".hero-text-container"),
-        inertia: true,
-        onDragEnd: function () {
-            const ball = document.querySelector(".drag-ball");
-            const bounds = document.querySelector(".hero-text-container");
-            
-            // Apply bounce force
-            const force = 0.5; // Strength of the bounce
-            const direction = this.deltaX > 0 ? -1 : 1; // Determine direction of bounce
-            
-            // Add bounce force if dragged and released
-            if (this.hitTest(ball, bounds)) {
-                gsap.to(ball, {
-                    x: direction * force * 900, // Bounce effect
-                    duration: 0.5,
-                    ease: "bounce.out",
-                    onComplete: () => {
-                        gsap.to(ball, {
-                            x: 0,
-                            duration: 0.2,
-                            ease: "power1.out"
-                        });
-                    }
-                });
-            }
-        },
-        onClick: function () {
-            const ball = document.querySelector(".drag-ball");
-            
-            console.log("clicked");
-            
-            // Apply floating effect on click
-            gsap.to(ball, {
-                y: 20, // Move upwards
-                repeat: -1, // Infinite loop
-                yoyo: true, // Bounce up and down
-                duration: 0.5, 
-                ease: "power1.inOut"
-            });
-        }
-    });
-    
-    
+
+
+
+
+
+
+
+console.clear();
+gsap.registerPlugin(InertiaPlugin) 
+const friction = -1;
+
+const ball = document.querySelector(".drag-ball");
+const ballProps = gsap.getProperty(ball);
+const radius = ball.getBoundingClientRect().width / 2;
+
+// Use the latest method to track inertia
+const tracker = Draggable.create(ball, { type: "x,y", inertia: true })[0];
+
+let vw = window.innerWidth;
+let vh = window.innerHeight;
+
+gsap.defaults({
+  overwrite: true
+});
+
+gsap.set(ball, {
+  xPercent: -50,
+  yPercent: -50,
+  x: vw / 2,
+  y: vh / 2
+});
+
+const draggable = new Draggable(ball, {
+  bounds: window,
+  allowContextMenu: true,
+  onPress() {
+    gsap.killTweensOf(ball);
+    this.update(); // Update inertia tracking
+  },
+  onDragEnd: animateBounce,
+  onDragEndParams: []
+});
+
+window.addEventListener("resize", () => {
+  vw = window.innerWidth;
+  vh = window.innerHeight;
+});
+
+function animateBounce(x = "+=0", y = "+=0", vx = "auto", vy = "auto") {
+  gsap.to(ball, {
+    x,
+    y,
+    inertia: {
+      x: {
+        velocity: vx,
+        max: vw - radius,
+        min: radius,
+        resistance: 1.5, 
+      },
+      y: {
+        velocity: vy,
+        max: vh - radius,
+        min: radius,
+        resistance: 1.5,
+      }
+    },
+    onUpdate: checkBounds
+  });
 }
-matterjs();
+
+function checkBounds() {
+  const r = radius;
+  let x = ballProps("x");
+  let y = ballProps("y");
+
+  if (x + r > vw || x - r < 0) {
+    animateBounce(x < r ? r : vw - r, y, tracker.velocity.x * friction, tracker.velocity.y);
+  }
+
+  if (y + r > vh || y - r < 0) {
+    animateBounce(x, y < r ? r : vh - r, tracker.velocity.x, tracker.velocity.y * friction);
+  }
+}
