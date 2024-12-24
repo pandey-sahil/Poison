@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Fjalla+One&family=Six+Caps&display=swap");
+
 * {
   margin: 0;
   padding: 0;
@@ -5,31 +7,31 @@
 }
 html,
 body {
-    height: 100%;
-    color: #fff;
+  height: 100%;
+  color: #fff;
   width: 100%;
   background: #000;
   overflow-x: hidden;
 }
 
 .text-sm-16 {
-  font: 16px "fjalla one";
+  font: 16px fjalla one;
   letter-spacing: -0.32px;
   font-weight: 400;
 }
 
 .text-sm-24 {
-  font: 24px "fjalla one";
+  font: 24px fjalla one;
   text-transform: uppercase;
   letter-spacing: -0.32px;
   font-weight: 400;
   line-height: 24px;
 }
 
-.text-large-360{
-    font: 1000px "six caps";
-    
-    line-height: 880px;
+.text-large-360 {
+  font: 1000px Six Caps;
+
+  line-height: 880px;
 }
 
 .nav-bar {
@@ -49,66 +51,82 @@ body {
 /* Slider container */
 .hero-slider-container {
   width: 100%;
-  height: 270px;
-  overflow: hidden;
+  height: 300px;
   position: relative;
+  z-index: 1;
 }
 
 .hero-image-section {
+  z-index: 1;
   display: flex;
-  width: auto;
+  position: relative;
+  height: 300px;
   transition: transform 1s ease-in-out;
 }
 
 .hero-image-section img {
   width: 100vw;
+  object-position: center;
   height: 100%;
   object-fit: cover;
-  object-position: bottom;
   flex-shrink: 0;
 }
 
-
-.hero-text-container{
-    position: relative;
-    height: 100vh;
-    width: 100%;
-    padding: 20px;
+.hero-text-container {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: visible;
+  padding: 20px;
+  /* background: #e98d8d; */
 }
 
-.hero-text-container h1{
-    z-index: 1;
-    position: absolute;
-    
+.hero-text-container .poison-text-hero{
+  position: relative;
+  z-index: 8;
 }
 
-.drag-ball{
-padding: -5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    cursor: grab;
-    /* top: 0; */
-    border-radius: 50%;
-    z-index: 3;
-    cursor: grab;
-    transform: translate(-50%, -50%);
-    user-select: none;
-    background: rgb(0, 0, 0);
+.hero-text-container h1 {
+  position: absolute;
+  z-index: 8;
+  font-weight: 400;
 }
+
+.drag-ball {
+  padding: 2px;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9;
+  transform: translate(-50%, -50%);
+  cursor: grab;
+  position: absolute;
+}
+
 .drag-ball img {
-    width: 100%; /* Full image width */
-    animation: rotate 4s linear infinite  ;
-    height: 100%; /* Full image height */
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  animation: rotate 4s linear infinite;
 }
 
 @keyframes rotate {
-    from{
-        rotate: 0deg;
-    }
-    to{
-        rotate: 360deg;
-    }
-    
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.hero-text-container {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  padding: 20px;
+  overflow: hidden;
 }

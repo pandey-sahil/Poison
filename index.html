@@ -4,22 +4,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Poison</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Six+Caps&display=swap"
-      rel="stylesheet"
+      rel="shortcut icon"
+      href="https://framerusercontent.com/images/jFXSZrDQcRAWWXV4ReqTDp5O4.jpg"
+      type="image/x-icon"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
     <link
-      href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap"
       rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css"
     />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <main>
+    <main class="smooth-scroll">
       <header class="nav-bar">
         <nav class="nav">
           <h2 class="text-sm-24">Poison</h2>
@@ -33,31 +31,63 @@
 
       <section class="hero">
         <div class="hero-slider-container">
-            <div class="hero-image-section">
-              <img src="https://framerusercontent.com/images/ddyKmIkEyC9JBH9ye1BWOIMeQ.jpg" alt="Image 1">
-              <img src="https://framerusercontent.com/images/GrKjcZGbmsogDjKYUAwjzDOkXSg.jpg" alt="Image 2">
-              <img src="https://framerusercontent.com/images/esH6YRxCm7u3sVIAWm4uUI7Uk0.jpg" alt="Image 3">
-              <img src="https://framerusercontent.com/images/ddyKmIkEyC9JBH9ye1BWOIMeQ.jpg" alt="Image 1">
-              <img src="https://framerusercontent.com/images/GrKjcZGbmsogDjKYUAwjzDOkXSg.jpg" alt="Image 2">
-              <img src="https://framerusercontent.com/images/esH6YRxCm7u3sVIAWm4uUI7Uk0.jpg" alt="Image 3">
-            </div>
+          <div class="hero-image-section">
+            <img
+              src="https://framerusercontent.com/images/ddyKmIkEyC9JBH9ye1BWOIMeQ.jpg"
+              alt="Image 1"
+            />
+            <img
+              src="https://framerusercontent.com/images/GrKjcZGbmsogDjKYUAwjzDOkXSg.jpg"
+              alt="Image 2"
+            />
+            <img
+              src="https://framerusercontent.com/images/esH6YRxCm7u3sVIAWm4uUI7Uk0.jpg"
+              alt="Image 3"
+            />
+            <img
+              src="https://framerusercontent.com/images/ddyKmIkEyC9JBH9ye1BWOIMeQ.jpg"
+              alt="Image 1"
+            />
+            <img
+              src="https://framerusercontent.com/images/GrKjcZGbmsogDjKYUAwjzDOkXSg.jpg"
+              alt="Image 2"
+            />
+            <img
+              src="https://framerusercontent.com/images/esH6YRxCm7u3sVIAWm4uUI7Uk0.jpg"
+              alt="Image 3"
+            />
           </div>
-          <div class="hero-text-container">
+        </div>
+        <div class="hero-text-container">
+          <div class="poison-text-hero" data-scroll data-scroll-speed="8">
             <h1 class="text-large-360">POISON</h1>
-            <div class="drag-ball">
-               <img src="./resources/globe.svg" alt="">
-            </div>
           </div>
-          
-          
-        </section>
+          <div class="drag-ball">
+            <img src="./resources/globe.svg" alt="Ball" />
+          </div>
+        </div>
+      </section>
     </main>
-    
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Draggable.min.js" integrity="sha512-G7Wpe/pbg+zjyyM9HgQY6kacLAy+580lmA8DUXmZtioTI5FkaCRoLOaCLoeblrZABs7KZFD03cfSV9j7nmwxfw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/InertiaPlugin.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+      integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+      integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Draggable.min.js"
+      integrity="sha512-G7Wpe/pbg+zjyyM9HgQY6kacLAy+580lmA8DUXmZtioTI5FkaCRoLOaCLoeblrZABs7KZFD03cfSV9j7nmwxfw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <script src="script.js"></script>
   </body>
 </html>

@@ -1,106 +1,133 @@
-const slider = document.querySelector(".hero-image-section");
-const images = Array.from(slider.children);
-let currentIndex = 0;
+function initLocomotiveScroll() {
+  gsap.registerPlugin(ScrollTrigger);
 
-// Move to the next image
-function showNextImage() {
-  currentIndex = (currentIndex + 1) % images.length;
-
-  // Calculate the new position for infinite loop
-  const offset = currentIndex * -100; // -100vw for each slide
-  gsap.to(slider, {
-    x: `${offset}vw`,
-    duration: 2,
-    ease: "power1.inOut",
+  // Using Locomotive Scroll
+  const locoScroll = new LocomotiveScroll({
+    el: document.querySelector(".smooth-scroll"),
+    smooth: true,
   });
-}
 
-// Initial setup
-gsap.set(slider, { x: 0 });
+  // Sync Locomotive Scroll and ScrollTrigger
+  locoScroll.on("scroll", ScrollTrigger.update);
 
-// Set interval to slide to the next image every 3 seconds
-setInterval(showNextImage, 3000);
-
-
-
-
-
-
-
-
-console.clear();
-gsap.registerPlugin(InertiaPlugin) 
-const friction = -1;
-
-const ball = document.querySelector(".drag-ball");
-const ballProps = gsap.getProperty(ball);
-const radius = ball.getBoundingClientRect().width / 2;
-
-// Use the latest method to track inertia
-const tracker = Draggable.create(ball, { type: "x,y", inertia: true })[0];
-
-let vw = window.innerWidth;
-let vh = window.innerHeight;
-
-gsap.defaults({
-  overwrite: true
-});
-
-gsap.set(ball, {
-  xPercent: -50,
-  yPercent: -50,
-  x: vw / 2,
-  y: vh / 2
-});
-
-const draggable = new Draggable(ball, {
-  bounds: window,
-  allowContextMenu: true,
-  onPress() {
-    gsap.killTweensOf(ball);
-    this.update(); // Update inertia tracking
-  },
-  onDragEnd: animateBounce,
-  onDragEndParams: []
-});
-
-window.addEventListener("resize", () => {
-  vw = window.innerWidth;
-  vh = window.innerHeight;
-});
-
-function animateBounce(x = "+=0", y = "+=0", vx = "auto", vy = "auto") {
-  gsap.to(ball, {
-    x,
-    y,
-    inertia: {
-      x: {
-        velocity: vx,
-        max: vw - radius,
-        min: radius,
-        resistance: 1.5, 
-      },
-      y: {
-        velocity: vy,
-        max: vh - radius,
-        min: radius,
-        resistance: 1.5,
-      }
+  ScrollTrigger.scrollerProxy(".smooth-scroll", {
+    scrollTop(value) {
+      return arguments.length
+        ? locoScroll.scrollTo(value, 0, 0)
+        : locoScroll.scroll.instance.scroll.y;
     },
-    onUpdate: checkBounds
+    getBoundingClientRect() {
+      return {
+        top: 0,
+        left: 0,
+        width: window.innerWidth,
+        height: window.innerHeight,
+      };
+    },
+    pinType: document.querySelector(".smooth-scroll").style.transform
+      ? "transform"
+      : "fixed",
+  });
+
+  ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
+  ScrollTrigger.refresh();
+}
+
+initLocomotiveScroll();
+
+
+function heroSlider() {
+  const slider = document.querySelector(".hero-image-section");
+  const images = Array.from(slider.children);
+  let currentIndex = 0;
+
+  // Move to the next image
+  function showNextImage() {
+    currentIndex = (currentIndex + 1) % images.length;
+
+    // Calculate the new position for infinite loop
+    const offset = currentIndex * -100; // -100vw for each slide
+    gsap.to(slider, {
+      x: `${offset}vw`,
+      duration: 2,
+      ease: "power1.inOut",
+    });
+  }
+
+  // Initial setup
+  gsap.set(slider, { x: 0 });
+
+  // Set interval to slide to the next image every 3 seconds
+  setInterval(showNextImage, 3000);
+}
+
+heroSlider();
+
+function ballDrag() {
+  const container = document.querySelector(".hero-text-container");
+  const ball = document.querySelector(".drag-ball");
+
+  let velocity = { x: 0, y: 0 }; // Manual inertia
+  let lastPosition = { x: 0, y: 0 }; // Track the last known position
+
+  // Create Draggable instance
+  Draggable.create(ball, {
+    type: "x,y",
+    bounds: container,
+    onDragStart: function () {
+      // Stop animations when dragging starts
+      gsap.killTweensOf(ball);
+      velocity = { x: 0, y: 0 };
+    },
+    onDrag: function () {
+      // Calculate velocity manually
+      const currentPosition = { x: this.x, y: this.y };
+      velocity = {
+        x: currentPosition.x - lastPosition.x,
+        y: currentPosition.y - lastPosition.y,
+      };
+      lastPosition = currentPosition;
+    },
+    onDragEnd: function () {
+      // Apply manual inertia on drag release
+      gsap.to(ball, {
+        x: `+=${velocity.x * 10}`,
+        y: `+=${velocity.y * 10}`,
+        duration: 1,
+        ease: "power2.out",
+      });
+    },
+  });
+
+  // Update ball position on window scroll
+  window.addEventListener("scroll", () => {
+    const scrollOffset = window.scrollY;
+    const currentPosition = ball.getBoundingClientRect();
+    const containerBounds = container.getBoundingClientRect();
+
+    const newLeft = currentPosition.left - containerBounds.left;
+    const newTop = currentPosition.top - containerBounds.top + scrollOffset;
+
+    // Adjust GSAP's internal tracking
+    gsap.set(ball, { x: newLeft, y: newTop });
   });
 }
 
-function checkBounds() {
-  const r = radius;
-  let x = ballProps("x");
-  let y = ballProps("y");
+ballDrag();
 
-  if (x + r > vw || x - r < 0) {
-    animateBounce(x < r ? r : vw - r, y, tracker.velocity.x * friction, tracker.velocity.y);
-  }
-
-  if (y + r > vh || y - r < 0) {
-    animateBounce(x, y < r ? r : vh - r, tracker.velocity.x, tracker.velocity.y * friction);
-  }
+function animateHeroText() {
+  gsap.from(".hero-text-container h1", {
+    x: "100%",
+    opacity: 0,
+    duration: .9,
+    scrollTrigger: {
+      trigger: ".hero-text-container",
+      start: "top center",
+      end: "top 1%",
+      markers: true,
+      scroller: ".smooth-scroll",
+    },
+  });
 }
+
+animateHeroText();
