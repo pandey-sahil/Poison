@@ -23,6 +23,24 @@ body {
   font: 24px fjalla one;
   font-weight: 400;
 }
+
+.text-md-77 {
+  font: 77px fjalla one;
+  text-transform: uppercase;
+  letter-spacing: -3px;
+  font-weight: 400;
+  line-height: 100px;
+}
+
+.text-lg-160 {
+  font: 160px fjalla one;
+  text-transform: uppercase;
+  letter-spacing: -0.5rem;
+  font-weight: 400;
+  line-height: 1em;
+}
+
+
 .text-lg-184 {
   font: 184px fjalla one;
   text-transform: uppercase;
@@ -100,7 +118,7 @@ body {
 
 .drag-ball {
   padding: 2px;
-  top: 50%;
+  top: 35%;
   left: 6%;
   border-radius: 50%;
   background-color: black;
@@ -192,3 +210,103 @@ body {
 }
 
 
+.cta-section{
+display: flex;
+align-items: center;
+justify-content: end;
+gap: 32px;
+padding: 40px;
+}
+
+.arrow-right-down{
+  height: 40px;
+  width: 40px;
+}
+
+.view-project-btn .text-sm-24{
+  text-transform: uppercase;
+}
+
+
+.our-services-section{
+  padding: 88px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.our-services-head{
+  padding-right: 22rem;
+}
+.our-services-head p{
+  line-height: 40px;
+  text-transform: capitalize;
+}
+
+.our-services-bottom{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  color: #808183;
+}
+.our-services-list{
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.marquee-section{
+  padding: 100px 0;
+  gap: 32px;
+  width: 100%;
+}
+.text-gray{
+  color: #808183;
+}
+
+.marquee-text{
+  display: flex;
+}
+
+.marquee-text-right{
+  transform: translateX(120%);
+  transition: transform 2s ease-in-out infinite;
+}
+
+.marquee-text-right h1{
+  width: 100%;
+  text-align: right;
+}
+.marquee-text-right:nth-child(3) h1{
+  width: 100%;
+  text-align: right;
+  padding-right: 8vw;
+}
+
+.marquee-text-left {
+  transform: translateX(-120%);
+  transition: transform 2s ease-in-out infinite;
+}
+
+
+
+.marquee-section-bottom{
+  text-align: center;
+  text-transform: capitalize;
+  margin-top: 100px;
+  padding: 0 30rem;
+}
+
+.magnet-card-section{
+  padding: 100px 0 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.magnet-card{
+  background: #fff;
+  padding: 40px;
+  color: #000;
+
+}

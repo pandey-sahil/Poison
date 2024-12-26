@@ -133,10 +133,6 @@ function animateHeroText() {
 
 animateHeroText();
 
-
-
-
-
 function initPage2Animation() {
   let sections = document.querySelectorAll(".page2-image-section");
 
@@ -147,21 +143,21 @@ function initPage2Animation() {
     scrollTrigger: {
       trigger: ".image-section-container",
       start: "top 70%",
-      scroller: ".smooth-scroll", 
+      scroller: ".smooth-scroll",
       end: "top 30%",
       scrub: true,
-    }
+    },
   });
 
   let timeline = gsap.timeline({
     scrollTrigger: {
       trigger: ".image-section-container",
       start: "top top",
-      scroller: ".smooth-scroll", 
+      scroller: ".smooth-scroll",
       end: "top -150%",
       scrub: true,
       pin: true,
-    }
+    },
   });
 
   sections.forEach((section, index) => {
@@ -169,13 +165,46 @@ function initPage2Animation() {
       top: "0",
       duration: 20,
       ease: "easeInOut",
-      stagger: 1
+      stagger: 1,
     });
   });
-
-
-
 }
 
 initPage2Animation();
 
+function marqueeAnimation() {
+  let marqueeTextRight = document.querySelectorAll(".marquee-text-right");
+  let marqueeTextLeft = document.querySelector(".marquee-text-left");
+
+  marqueeTextRight.forEach((element) => {
+    gsap.to(element, {
+      x: "-50%",
+      duration: 20,
+      ease: "none", 
+      scrollTrigger: {
+        trigger: ".marquee-section",
+        start: "top 80%",
+        end: "top -50%",
+        scrub: 2, 
+        scroller: ".smooth-scroll",
+        markers: true,
+      },
+    });
+  });
+
+  gsap.to(marqueeTextLeft, {
+    x: "50%",
+    duration: 20,
+    ease: "none", 
+    scrollTrigger: {
+      trigger: ".marquee-section",
+      start: "top 80%",
+      end: "top -50%",
+      scrub: 2,
+      scroller: ".smooth-scroll",
+      markers: true,
+    },
+  });
+}
+
+marqueeAnimation();
