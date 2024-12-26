@@ -35,7 +35,7 @@ function initLocomotiveScroll() {
 
 initLocomotiveScroll();
 
-
+// Hero Slider Functionality
 function heroSlider() {
   const slider = document.querySelector(".hero-image-section");
   const images = Array.from(slider.children);
@@ -49,7 +49,7 @@ function heroSlider() {
     const offset = currentIndex * -100; // -100vw for each slide
     gsap.to(slider, {
       x: `${offset}vw`,
-      duration: 2,
+      duration: 1.3,
       ease: "power1.inOut",
     });
   }
@@ -63,6 +63,7 @@ function heroSlider() {
 
 heroSlider();
 
+// Ball Dragging with GSAP
 function ballDrag() {
   const container = document.querySelector(".hero-text-container");
   const ball = document.querySelector(".drag-ball");
@@ -115,19 +116,66 @@ function ballDrag() {
 
 ballDrag();
 
+// Animate Hero Text on Scroll
 function animateHeroText() {
   gsap.from(".hero-text-container h1", {
     x: "100%",
     opacity: 0,
-    duration: .9,
+    duration: 0.9,
     scrollTrigger: {
       trigger: ".hero-text-container",
       start: "top center",
       end: "top 1%",
-      markers: true,
-      scroller: ".smooth-scroll",
+      scroller: ".smooth-scroll", // Ensure Locomotive Scroll scroller is used
     },
   });
 }
 
 animateHeroText();
+
+
+
+
+
+function initPage2Animation() {
+  let sections = document.querySelectorAll(".page2-image-section");
+
+  gsap.from(".page2-image-section, .pg2-image-text", {
+    x: -50,
+    opacity: 0,
+    duration: 5,
+    scrollTrigger: {
+      trigger: ".image-section-container",
+      start: "top 70%",
+      scroller: ".smooth-scroll", 
+      end: "top 30%",
+      scrub: true,
+    }
+  });
+
+  let timeline = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".image-section-container",
+      start: "top top",
+      scroller: ".smooth-scroll", 
+      end: "top -150%",
+      scrub: true,
+      pin: true,
+    }
+  });
+
+  sections.forEach((section, index) => {
+    timeline.to(section, {
+      top: "0",
+      duration: 20,
+      ease: "easeInOut",
+      stagger: 1
+    });
+  });
+
+
+
+}
+
+initPage2Animation();
+
