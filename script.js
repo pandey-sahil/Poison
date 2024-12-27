@@ -75,6 +75,7 @@ function ballDrag() {
   Draggable.create(ball, {
     type: "x,y",
     bounds: container,
+    inertia: true,
     onDragStart: function () {
       // Stop animations when dragging starts
       gsap.killTweensOf(ball);
@@ -95,11 +96,15 @@ function ballDrag() {
         x: `+=${velocity.x * 10}`,
         y: `+=${velocity.y * 10}`,
         duration: 1,
-        ease: "power2.out",
+ease: "elastic.out(0.4, 0.2)"
+
       });
     },
   });
 
+
+
+  
   // Update ball position on window scroll
   window.addEventListener("scroll", () => {
     const scrollOffset = window.scrollY;

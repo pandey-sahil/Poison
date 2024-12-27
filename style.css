@@ -4,7 +4,9 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  user-select: none;
 }
+
 html,
 body {
   height: 100%;
@@ -19,6 +21,7 @@ body {
   letter-spacing: -0.32px;
   font-weight: 400;
 }
+
 .text-sm-24 {
   font: 24px fjalla one;
   font-weight: 400;
@@ -39,7 +42,6 @@ body {
   font-weight: 400;
   line-height: 1em;
 }
-
 
 .text-lg-184 {
   font: 184px fjalla one;
@@ -259,6 +261,7 @@ padding: 40px;
 .our-services-head{
   padding-right: 22rem;
 }
+
 .our-services-head p{
   line-height: 40px;
   text-transform: capitalize;
@@ -281,6 +284,7 @@ padding: 40px;
   gap: 32px;
   width: 100%;
 }
+
 .text-gray{
   color: #808183;
 }
@@ -309,8 +313,6 @@ padding: 40px;
   transition: transform 2s ease-in-out infinite;
 }
 
-
-
 .marquee-section-bottom{
   text-align: center;
   text-transform: capitalize;
@@ -318,7 +320,6 @@ padding: 40px;
   padding: 0 30rem;
   overflow: hidden;
 }
-
 
 .magnet-card-section{
   padding: 100px 0 200px;
@@ -328,7 +329,6 @@ padding: 40px;
   gap: 82px;
 }
 
-
 .magnet-card-container{
   display: flex;
   flex-direction: column;
@@ -336,7 +336,6 @@ padding: 40px;
   gap: 26px;
   
 }
-
 
 .magnet-card{
   background: #fff;
@@ -359,6 +358,7 @@ padding: 40px;
   height: 250px;
   width: 250px;
 }
+
 .card-svg-elem img{
   height: 100%;
   width: 100%;
