@@ -208,6 +208,19 @@ function marqueeAnimation() {
       scroller: ".smooth-scroll",
     },
   });
+
+  gsap.to(".our-team-container", {
+    y: "-50%",
+    duration: 20,
+    scrollTrigger: {
+      trigger: ".our-team-section",
+      start: "top 0%",
+      end: "top -50%",
+      scrub: 2,
+      pin: true,
+      scroller: ".smooth-scroll",
+    },
+  });
 }
 
 marqueeAnimation();
@@ -252,3 +265,25 @@ droppables.forEach(droppable => {
     }
   });
 });
+
+
+
+
+
+
+const marquee = document.querySelector(".our-team-marquee-bg");
+    const items = document.querySelectorAll(".text-lg-184");
+
+    // Duplicate the content for seamless animation
+    marquee.innerHTML += marquee.innerHTML;
+
+    // Calculate the width of the entire marquee
+    const totalWidth = Array.from(items).reduce((acc, item) => acc + item.offsetWidth, 0);
+
+    // Animate the marquee
+    gsap.to(".our-team-marquee-bg", {
+      x: -totalWidth, // Move left by the total width
+      duration: 15, // Adjust speed here
+      repeat: -1, // Infinite loop
+      ease: "linear",
+    });
