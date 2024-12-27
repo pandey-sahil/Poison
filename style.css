@@ -50,18 +50,23 @@ body {
 }
 
 .text-large-360 {
-  font: 70vw Six Caps;
+  font: 35vw Six Caps;
   line-height: 5vw;
   line-height: 780px;
 }
 
 .nav-bar {
   padding: 26px;
+  width: 50%;
+  padding-right: 0;
 }
 .nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+.nav h2{
+  text-transform: uppercase;
 }
 
 .nav-links {
@@ -69,11 +74,20 @@ body {
   gap: 24px;
 }
 
+.hero{
+  display: grid;
+  grid-template-columns: auto auto;
+  width: 100%;
+  height: calc(100% - 90px);
+overflow: hidden;
+}
+
 /* Slider container */
 .hero-slider-container {
-  width: 100%;
-  height: 300px;
+  width: 50vw;
+  height: 100%;
   position: relative;
+  overflow: hidden;
   z-index: 0;
 }
 
@@ -81,39 +95,43 @@ body {
   display: flex;
   position: relative;
   z-index: 0;
-  height: 300px;
+  width: 50vw;
+  object-fit: cover;
+  object-position: center;
   transition: transform 1s ease-in-out;
+  height: 100%;
 }
 
 .hero-image-section img {
-  width: 100vw;
-  object-position: center;
+  width: 100%;
   height: 100%;
+  object-position: center;
   object-fit: cover;
   z-index: 0;
+  
   flex-shrink: 0;
 }
 
 .hero-text-container {
-  position: relative;
-  height: 150vh;
   width: 100%;
-  overflow: visible;
   padding: 20px;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  position: relative;
   /* background: #e98d8d; */
 }
 
 .hero-text-container .poison-text-hero {
-  position: relative;
-  height: fit-content;
-  z-index: 8;
+  display: flex;
+  align-items: start;
+  justify-content: center;
 }
 
 .hero-text-container .poison-text-hero h1 {
-  position: absolute;
-  z-index: 10; /* Higher than the slider z-index */
-
-  pointer-events: none; /* Prevent interference with other elements */
+  top: 0;
+  margin: -8vw 0;
+  pointer-events: none;
 }
 
 .drag-ball {
@@ -147,6 +165,11 @@ body {
   }
 }
 
+.image-section{
+
+  width: 100%;
+}
+
 .image-section-container {
   display: block; /* Change from flex to block */
   position: relative;
@@ -155,23 +178,21 @@ body {
 }
 
 .page2-image-section {
-  height: 470px;
-  position: absolute;
-  top: 100%;
   left: 0;
+  position: absolute;
   width: 100%;
   z-index: 1; 
 }
 
 .page2-image-section img {
-  height: 470px;
+  height: 100%;
   width: 100%;
   object-fit: cover;
 }
 
 .pg2-image-text-overly {
   position: absolute;
-  top: 0;
+  bottom: 15%;
   width: 100%;
   display: flex;
   opacity: 1;
@@ -205,7 +226,7 @@ body {
 
 .page2-image-section:nth-child(3) {
   background: #b1d9f8;
-  top: 150%;
+  top:200%;
   z-index: 3;
 }
 
@@ -280,7 +301,7 @@ padding: 40px;
 .marquee-text-right:nth-child(3) h1{
   width: 100%;
   text-align: right;
-  padding-right: 8vw;
+  padding-right: 10vw;
 }
 
 .marquee-text-left {
@@ -295,18 +316,61 @@ padding: 40px;
   text-transform: capitalize;
   margin-top: 100px;
   padding: 0 30rem;
+  overflow: hidden;
 }
+
 
 .magnet-card-section{
   padding: 100px 0 200px;
   display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 82px;
+}
+
+
+.magnet-card-container{
+  display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 26px;
+  
 }
+
 
 .magnet-card{
   background: #fff;
-  padding: 40px;
+  padding: 60px 40px;
+  padding-right: 80px;
   color: #000;
+  transform: translate3d(0, 0);
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
 
+.magnet-card p{
+  text-transform: capitalize;
+  line-height: normal;
+  
+}
+
+.card-svg-elem{
+  height: 250px;
+  width: 250px;
+}
+.card-svg-elem img{
+  height: 100%;
+  width: 100%;
+}
+
+/* OUR TEAM  */
+
+.our-team-section{
+  width: 100%;
+}
+
+.our-team-marquee-bg{
+  height: 100vh;
+  background: red;
 }

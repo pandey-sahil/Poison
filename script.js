@@ -46,7 +46,7 @@ function heroSlider() {
     currentIndex = (currentIndex + 1) % images.length;
 
     // Calculate the new position for infinite loop
-    const offset = currentIndex * -100; // -100vw for each slide
+    const offset = currentIndex * - 50; // -100vw for each slide
     gsap.to(slider, {
       x: `${offset}vw`,
       duration: 1.3,
@@ -151,10 +151,10 @@ function initPage2Animation() {
 
   let timeline = gsap.timeline({
     scrollTrigger: {
-      trigger: ".image-section-container",
-      start: "top top",
+      trigger: ".image-section",
+      start: "top 0%",
       scroller: ".smooth-scroll",
-      end: "top -150%",
+      end: "top -100%",
       scrub: true,
       pin: true,
     },
@@ -163,7 +163,7 @@ function initPage2Animation() {
   sections.forEach((section, index) => {
     timeline.to(section, {
       top: "0",
-      duration: 20,
+      duration: 60,
       ease: "easeInOut",
       stagger: 1,
     });
@@ -187,7 +187,6 @@ function marqueeAnimation() {
         end: "top -50%",
         scrub: 2, 
         scroller: ".smooth-scroll",
-        markers: true,
       },
     });
   });
@@ -202,9 +201,49 @@ function marqueeAnimation() {
       end: "top -50%",
       scrub: 2,
       scroller: ".smooth-scroll",
-      markers: true,
     },
   });
 }
 
 marqueeAnimation();
+
+
+
+const droppables = document.querySelectorAll(".magnet-card");
+const bound = document.querySelector(".magnet-card-section");
+
+gsap.registerPlugin(Draggable, ScrollTrigger);
+
+droppables.forEach(droppable => {
+  let droppableContainer = droppable.closest(".magnet-card-container");
+  
+  gsap.from(droppable, {
+    y: "100%",
+    duration: 30,
+    opacity: 0,
+    rotateY: 180,
+    clearProps: "all" ,
+    scrollTrigger: {
+      trigger: droppableContainer,
+      start: "top 80%",
+      end: "top 0%",
+      scrub: 6,
+      scroller: ".smooth-scroll",
+    }
+  });
+
+  Draggable.create(droppable, {
+    type: "x,y",
+    bounds: bound,
+    inertia: true,
+    clearProps: "all" ,
+    onDragEnd: function() {
+      gsap.to(this.target, {
+        duration: 0.5,
+        x: 0,
+        y: 0,
+        ease: "elastic.out(1, 0.3)",
+      });
+    }
+  });
+});
