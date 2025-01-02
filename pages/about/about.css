@@ -1,0 +1,71 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html , body{
+    height: 100%;
+    width: 100%;
+}
+
+
+.text-xl-460{
+    font: 460px fjalla one;
+    line-height: 460px;
+    text-transform: uppercase;
+    letter-spacing: -1.5rem;
+}
+
+
+
+.nav-bar{
+    width: 100%;
+    padding: 26px;
+    background: #000;
+}
+.nav{
+    width: 100%;
+}
+
+.about-hero{
+    width: 100%;
+    background: #ffffff;
+    position: relative;
+}
+
+.about-hero-container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 0;
+}
+
+.about-hero-container h1{
+    color: #000;
+}
+
+.hero-cards-container{
+    position: absolute;
+    width: 100%;
+    top: 100%;
+}
+
+.magnet-card-container{
+    width: 100%;
+    padding: 100px;
+}
+
+.magnet-card{
+    background: #808183;
+    padding-right: 10vw;
+    padding-bottom: 2rem;
+}
+
+.magnet-card .text-sm-16{
+    color: #fff;
+}
+
+.card-svg-elem img{
+    mix-blend-mode: multiply;
+}

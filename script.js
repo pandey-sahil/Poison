@@ -287,3 +287,11 @@ const marquee = document.querySelector(".our-team-marquee-bg");
       repeat: -1, // Infinite loop
       ease: "linear",
     });
+
+
+
+
+
+
+  // About Page Animation
+
