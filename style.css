@@ -59,9 +59,9 @@ body {
 }
 
 .text-large-360 {
-  font: 35vw Six Caps;
+  font: 32rem Six Caps;
   line-height: 5vw;
-  line-height: 780px;
+  line-height: 1;
 }
 
 .nav-bar {
@@ -85,9 +85,9 @@ body {
 
 .hero {
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: 1fr 1fr;
   width: 100%;
-  height: calc(100% - 90px);
+  height: 100%;
   overflow: hidden;
 }
 
@@ -134,12 +134,12 @@ body {
 .hero-text-container .poison-text-hero {
   display: flex;
   align-items: start;
+  margin: -8vw 0;
   justify-content: center;
 }
 
 .hero-text-container .poison-text-hero h1 {
   top: 0;
-  margin: -8vw 0;
   pointer-events: none;
 }
 
@@ -500,6 +500,25 @@ body {
   position: relative;
 }
 
+@media (max-width: 900px) {
+
+  .hero{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hero-slider-container{
+    width: 100%;
+  }
+
+  .hero-image-section {
+    width: 100vw;
+    height: 100%;
+
+    background: rgb(255, 144, 144);
+  }
+}
+
 @media (max-width: 768px) {
   * {
     margin: 0;
@@ -561,8 +580,8 @@ body {
 
   .text-large-360 {
     font: 360px Six Caps;
-    line-height: 5vw;
     line-height: 320px;
+    letter-spacing: -0.5rem;
   }
 
   .nav-bar {
@@ -656,7 +675,7 @@ body {
     display: block; /* Change from flex to block */
     position: relative;
     height: 75vh;
-    overflow: hidden;
+    overflow: visible;
   }
 
   .page2-image-section {
