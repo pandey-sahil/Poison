@@ -210,7 +210,7 @@ function marqueeAnimation() {
   });
 
   gsap.to(".our-team-container", {
-    y: "-50%",
+    y: "-95%",
     duration: 20,
     scrollTrigger: {
       trigger: ".our-team-section",

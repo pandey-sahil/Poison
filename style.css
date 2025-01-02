@@ -42,6 +42,13 @@ body {
   font-weight: 400;
   line-height: 1em;
 }
+.text-lg-180 {
+  font: 180px fjalla one;
+  text-transform: uppercase;
+  letter-spacing: -0.2rem;
+  font-weight: 400;
+  line-height: 1em;
+}
 
 .text-lg-184 {
   font: 360px fjalla one;
@@ -369,6 +376,7 @@ padding: 40px;
 .our-team-section{
   width: 100%;
   position: relative;
+  overflow: hidden;
 }
 
 .our-team-marquee-bg{
@@ -394,7 +402,6 @@ padding: 40px;
   width: 100%;
   align-items: start;
   justify-items: center;
-  
   overflow: auto;
 }
 
@@ -438,4 +445,67 @@ padding: 40px;
 .our-team-member:hover{
   transform: rotateZ(10deg);
   border-radius: 220px;
+}
+
+
+.footer-section{
+  padding: 100px 80px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.footer-left{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.footer-left-head{
+  display: flex;
+  justify-content: end;
+}
+
+.footer-left-mid{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.footer-contactus-elem{
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  text-transform: uppercase;
+  justify-content: start;
+  padding: 5px;
+  border-bottom: 1.5px solid #fff;
+  transition: all .8s cubic-bezier(0.19, 1, 0.22, 1);;
+}
+
+.footer-contactus-elem:hover{
+  margin-left: 46px;
+}
+
+.footer-social-links{
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  color: #808183;
+  justify-content: end;
+  align-items: end;
+}
+
+.footer-social-links h5:hover{
+  text-decoration: underline #808183;
+  transition: all .2 cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+
+.bottom-nav{
+  display: flex;
+  width: 95%;
+  align-items: end;
+  margin-top: 80px;
+  justify-content: end;
+  position: relative;
 }
