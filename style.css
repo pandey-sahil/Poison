@@ -509,3 +509,324 @@ padding: 40px;
   justify-content: end;
   position: relative;
 }
+
+
+
+
+@media (max-width: 768px) {
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+  }
+  
+  html,
+  body {
+    height: 100%;
+    color: #fff;
+    width: 100%;
+    background: #000;
+    overflow-x: hidden;
+  }
+  
+  .text-sm-16 {
+    font: 16px fjalla one;
+    letter-spacing: -0.32px;
+    font-weight: 400;
+  }
+  
+  .text-sm-24 {
+    font: 16px fjalla one;
+    font-weight: 400;
+  }
+  
+  .text-md-77 {
+    font: 77px fjalla one;
+    text-transform: uppercase;
+    letter-spacing: -3px;
+    font-weight: 400;
+    line-height: 100px;
+  }
+  
+  .text-lg-160 {
+    font: 56px fjalla one;
+    text-transform: uppercase;
+    letter-spacing: -0.2rem;
+    font-weight: 400;
+    line-height: 1em;
+  }
+  .text-lg-180 {
+    font: 180px fjalla one;
+    text-transform: uppercase;
+    letter-spacing: -0.2rem;
+    font-weight: 400;
+    line-height: 1em;
+  }
+  
+  .text-lg-184 {
+    font: 56px fjalla one;
+    text-transform: uppercase;
+    letter-spacing: -0.1rem;
+    font-weight: 400;
+    line-height: 180px;
+  }
+  
+  .text-large-360 {
+    font: 360px Six Caps;
+    line-height: 5vw;
+    line-height: 320px;
+  }
+  
+  .nav-bar {
+    padding: 26px;
+    width: 100%;
+    padding-right: 0;
+  }
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .nav h2{
+    text-transform: uppercase;
+  }
+  
+  .nav-links {
+    display: none;
+    gap: 24px;
+  }
+  
+  .hero{
+    display: flex;
+    flex-direction: column;
+    grid-template-columns: auto auto;
+    width: 100%;
+    height: auto;
+  overflow: hidden;
+  }
+  
+  /* Slider container */
+  .hero-slider-container {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+  }
+  
+  .hero-image-section {
+    display: flex;
+    position: relative;
+    z-index: 0;
+    width: 100%   ;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 1s ease-in-out;
+    height: 100%;
+  }
+  
+  .hero-image-section img {
+    width: 100%;
+    height: 100%;
+    object-position: center;
+    object-fit: cover;
+    z-index: 0;
+    
+    flex-shrink: 0;
+  }
+  
+  .hero-text-container {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    position: relative;
+    /* background: #e98d8d; */
+  }
+  
+  .hero-text-container .poison-text-hero {
+    display: flex;
+    align-items: start;
+    justify-content: center;
+  }
+  
+  .hero-text-container .poison-text-hero h1 {
+    top: 0;
+    margin: -8vw 0;
+    pointer-events: none;
+  }
+
+
+
+
+
+
+  
+.image-section{
+  height: 100%;
+  width: 100%;
+  margin-top: 8vw;
+  position: relative;
+}
+
+.image-section-container {
+  display: block; /* Change from flex to block */
+  position: relative;
+  height: 75vh;
+  overflow: hidden;
+}
+
+.page2-image-section {
+  left: 0;
+  position: absolute;
+  width: 100%;
+  height: 75vh;
+  z-index: 1; 
+}
+
+.page2-image-section img {
+  height: 75vh;
+  width: 100%;
+  object-fit: cover;
+}
+
+.pg2-image-text-overly {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  opacity: 1;
+  padding: 72px 46px;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: end;
+}
+
+.page2-img-bottom{
+  text-transform: capitalize;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.page2-img-bottom h5{
+  color: #d9d9d9;
+
+}
+
+.page2-image-section:nth-child(1) {
+  z-index: 1;
+  top: 0;
+}
+
+.page2-image-section:nth-child(2) {
+  background: #000000;
+  z-index: 2;
+  top: 100%;
+}
+
+.page2-image-section:nth-child(3) {
+  background: #b1d9f8;
+  top:200%;
+  z-index: 3;
+}
+
+  
+.cta-section{
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 32px;
+  padding: 40px;
+  }
+  
+  .arrow-right-down{
+    height: 40px;
+    width: 40px;
+  }
+
+.view-project-btn .text-sm-24{
+  font-size: 24px;
+}
+
+
+
+.our-services-section{
+  padding: 142px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 200px;
+}
+
+.our-services-head{
+  padding-right: 0;
+}
+
+.our-services-head p{
+  line-height: 24px;
+  text-transform: capitalize;
+}
+
+.our-services-bottom{
+  display: flex;
+  flex-direction: column;
+  grid-template-columns: 1fr 1fr;
+  color: #808183;
+  gap: 54px;
+}
+
+.our-services-list{
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+
+.marquee-section{
+  padding: 50px 0;
+  gap: 32px;
+  width: 100%;
+}
+
+.text-gray{
+  color: #808183;
+}
+
+.marquee-text{
+  display: flex;
+}
+
+.marquee-text-right{
+  transform: translateX(100%);
+  transition: transform 2s ease-in-out infinite;
+}
+
+.marquee-text-right h1{
+  width: 100%;
+  text-align: right;
+}
+.marquee-text-right:nth-child(3) h1{
+  width: 100%;
+  text-align: right;
+  padding-right: 10vw;
+}
+
+.marquee-text-left {
+  transform: translateX(-100%);
+  transition: transform 2s ease-in-out infinite;
+}
+
+.marquee-section-bottom{
+  text-align: center;
+  text-transform: capitalize;
+  margin-top: 50px;
+  padding: 0 7rem;
+  overflow: hidden;
+}
+
+}
