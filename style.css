@@ -967,7 +967,7 @@ body {
 
 .footer-contactus-elem {
   display: flex;
-  gap: 50px;
+  gap: 10px;
   align-items: center;
   text-transform: uppercase;
   justify-content: start;
