@@ -226,13 +226,11 @@ body {
 }
 
 .page2-image-section:nth-child(2) {
-  background: #b1f8b4;
   z-index: 2;
   top: 100%;
 }
 
 .page2-image-section:nth-child(3) {
-  background: #b1d9f8;
   top: 200%;
   z-index: 3;
 }
