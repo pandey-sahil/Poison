@@ -48,6 +48,37 @@ function initLocomotiveScroll() {
   return locoScroll;
 }
 
+
+function navAnime() {
+  const navTrigger = document.querySelector(".navTrigger");
+  const bars = document.querySelectorAll(".navTrigger i");
+  const mobileNav = document.querySelector(".mobile-nav");
+  const menu = document.querySelector(".menu");
+  let isNavVisible = false;
+  
+  const navTl = gsap.timeline({ paused: true });
+  navTl
+    .to(bars[0], { y: 9, rotation: 135, duration: 0.3, ease: "power2.inOut" })
+    .to(bars[1], { opacity: 0, duration: 0.3, ease: "power2.inOut" }, 0)
+    .to(bars[2], { y: -9, rotation: 45, duration: 0.3, ease: "power2.inOut" }, 0);
+
+  menu.addEventListener("click", () => {
+    navTrigger.classList.toggle("active");
+    mobileNav.classList.toggle("active");
+    
+    if (navTrigger.classList.contains("active")) {
+      navTl.play();
+      isNavVisible = true;
+    } else {
+      navTl.reverse();
+      isNavVisible = false;
+    }
+  });
+}
+
+navAnime();
+
+
 // Hero Slider with responsive handling
 function heroSlider() {
   const slider = document.querySelector(".hero-image-section");

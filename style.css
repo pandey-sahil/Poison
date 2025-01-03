@@ -27,6 +27,14 @@ body {
   font-weight: 400;
 }
 
+.text-md-56 {
+  font: 56px fjalla one;
+  text-transform: uppercase;
+  letter-spacing: -3px;
+  font-weight: 400;
+  line-height: 1;
+}
+
 .text-md-77 {
   font: 77px fjalla one;
   text-transform: uppercase;
@@ -64,16 +72,93 @@ body {
   line-height: 1;
 }
 
+.text-xl-460 {
+  font: 460px fjalla one;
+  line-height: 460px;
+  text-transform: uppercase;
+  letter-spacing: -1.5rem;
+}
+
+
+
+
+
+
+.menu {
+  height: 20px;
+  width: 20px;
+display: none;
+}
+
+.navTrigger {
+  cursor: pointer;
+  width: 25px;
+  height: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.navTrigger i {
+  background-color: #fff;
+  border-radius: 2px;
+  width: 100%;
+  height: 2px;
+}
+
+.navTrigger i:nth-child(2) {
+  width: 70%;
+  align-self: flex-end;
+}
+
+.navTrigger.active i {
+  background-color: rgb(255, 255, 255);
+}
+
+.mobile-nav {
+  width: 100%;
+  height: auto;
+  background: #000000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translateY(-100%);
+  z-index: 10;
+  transition: transform 0.2s ease;
+  padding: 100px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+
+.mobile-nav h3 a,
+.nav h3 a{
+  all: unset;
+  cursor: pointer;
+
+}
+
+.mobile-nav.active {
+  transform: translateY(0);
+  top: 1%;
+}
+
 .nav-bar {
   padding: 26px;
-  width: 50%;
-  padding-right: 0;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 11;
 }
+
 .nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
+  position: relative;
 }
+
 .nav h2 {
   text-transform: uppercase;
 }
@@ -585,7 +670,8 @@ body {
   .nav-bar {
     padding: 26px;
     width: 100%;
-    padding-right: 0;
+    overflow: hidden;
+    height: 70px;
   }
   .nav {
     display: flex;
@@ -599,6 +685,11 @@ body {
   .nav-links {
     display: none;
     gap: 24px;
+    cursor: pointer;
+  }
+
+  .menu{
+    display: block;
   }
 
   .hero {
