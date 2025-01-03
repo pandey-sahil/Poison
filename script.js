@@ -41,23 +41,21 @@ function heroSlider() {
   const images = Array.from(slider.children);
   let currentIndex = 0;
 
-  // Move to the next image
+
   function showNextImage() {
     currentIndex = (currentIndex + 1) % images.length;
 
-    // Calculate the new position for infinite loop
-    const offset = currentIndex * - 50; // -100vw for each slide
+
     gsap.to(slider, {
-      x: `${offset}vw`,
-      duration: 1.3,
+      x: `-100%`,
+      duration: 1,
       ease: "power1.inOut",
     });
   }
 
-  // Initial setup
   gsap.set(slider, { x: 0 });
 
-  // Set interval to slide to the next image every 3 seconds
+
   setInterval(showNextImage, 3000);
 }
 
