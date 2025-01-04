@@ -8,6 +8,10 @@ html , body{
     width: 100%;
 }
 
+.mobile-nav.active {
+    top: 6%;
+}
+
 .contact-hero{
     background: rgb(0, 0, 0);
     display: flex;
