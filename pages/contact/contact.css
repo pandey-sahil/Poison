@@ -68,3 +68,96 @@ html , body{
   .bottom-nav .nav{
     justify-content: end;
   }
+
+
+  @media (max-width: 768px) {
+   
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    html , body{
+        height: 100%;
+        width: 100%;
+    }
+    .text-lg-180{
+        font-size: 56px;
+    }
+    
+    .contact-hero{
+        background: rgb(0, 0, 0);
+        display: flex;
+        padding: 100px 0 0;
+        width: 100%;
+        flex-direction: column;
+        gap: 50px;
+        align-items: center;
+    }
+    .contact-footer{
+        width: 100%;
+        display: flex;
+        padding: 0 20px;
+        flex-direction: column;
+        align-items: center;
+    
+    }
+    .footer-section{
+        background: #ffffff;
+            width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 40px ;
+        padding-bottom: 60px;
+        gap: 30px;
+    }
+    
+    .footer-left{
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        width: 100%;
+    }
+    
+    .footer-left h4, 
+    .footer-left h5{
+        color: #000;
+    }
+    
+    .footer-left-head{
+        width: 100%;
+        display: flex;
+        justify-content: end;
+    }
+    
+    .footer-contactus-elem {
+        display: flex;
+        gap: 24px;
+        align-items: center;
+        text-transform: capitalize;
+        justify-content: start;
+        padding: 5px;
+        border-bottom: 1.5px solid #000000;
+        transition: all 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+      }
+
+      .footer-social-links{
+        gap: 20px;
+        width: 100%;
+        align-items: end;
+      }
+    
+      .bottom-nav{
+        background: rgb(0, 0, 0);
+        padding: 50px 40px;
+        border-top: 2px solid #ffadad;
+        margin: 0;
+        width: 100%;
+      }
+      .bottom-nav .nav{
+        justify-content: end;
+      }
+
+    
+  }
