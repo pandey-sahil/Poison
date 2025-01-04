@@ -10,7 +10,7 @@ html , body{
 
 .mobile-nav.active {
   transform: translateY(0);
-  top: 3%;
+  top: 5%;
 }
 
 
