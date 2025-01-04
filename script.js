@@ -253,7 +253,7 @@ function marqueeAnimation() {
   });
 
   gsap.to(".our-team-container", {
-    y: "-95%",
+    y: "-90%",
     duration: duration,
     scrollTrigger: {
       trigger: ".our-team-section",

@@ -20,6 +20,13 @@ body {
   width: 100%;
 }
 
+.mobile-nav.active {
+  top: 1.2%;
+}
+
+
+
+
 .about-hero {
   width: 100%;
   background: #ffffff;

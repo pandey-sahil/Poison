@@ -35,4 +35,34 @@ function initLocomotiveScroll() {
 
 initLocomotiveScroll();
 
-  
+function workAnimation() {
+  const workShow = document.querySelectorAll(".work-show");
+
+  workShow.forEach((work, index) => {
+    const workImage = work.querySelectorAll(".work-image");
+    work.addEventListener("mouseenter", () => {
+      gsap.to(workImage, {
+        opacity: 1,
+        rotate: "5deg",
+        left: "50%",
+        scale: 1,
+        transformOrigin: "center",
+        duration: 0.5,
+      });
+    });
+    work.addEventListener("mouseleave", () => {
+      gsap.to(workImage, {
+        opacity: 0,
+        rotate: "0deg",
+        left: "30%",
+        scale: 0,
+        duration: 0.5,
+      });
+    });
+  });
+}
+
+workAnimation();
+
+
+
