@@ -350,7 +350,7 @@ function initTeamMarquee() {
 }
 
 gsap.from(".footer-section", {
-  x: "100%",
+  x: -100,
   opacity: 0,
   duration: 1,
   scrollTrigger: {
