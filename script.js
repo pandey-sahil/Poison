@@ -353,12 +353,10 @@ gsap.from(".footer-section", {
   x: "100%",
   opacity: 0,
   duration: 1,
-  stagger: 0.5,
   scrollTrigger: {
     trigger: ".footer-section",
     start: "top 80%",
     end: "top 50%",
-    scrub: 1,
     scroller: ".smooth-scroll",
   },
 });
