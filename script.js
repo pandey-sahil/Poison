@@ -225,7 +225,6 @@ function initPage2Animation() {
         trigger: section,
         start: isMobile() ? "top 85%" : "top 80%",
         scroller: ".smooth-scroll",
-
         end: isMobile() ? "top 40%" : "top 30%",
       },
     });
@@ -372,7 +371,7 @@ function handleResize() {
 window.addEventListener("load", init);
 window.addEventListener("resize", handleResize);
 
-gsap.from(".footer-left", {
+gsap.from(".footer-section", {
   x: "100%",
   opacity: 0,
   duration: 20,
@@ -380,19 +379,6 @@ gsap.from(".footer-left", {
   scrollTrigger: {
     trigger: ".footer-section",
     start: "top 50%",
-    end: "top 30%",
-    scrub: 2,
-    scroller: ".smooth-scroll",
-  },
-});
-gsap.from(".footer-right", {
-  x: "-100%",
-  opacity: 0,
-  duration: 20,
-  stagger: 1,
-  scrollTrigger: {
-    trigger: ".footer-section",
-    start: "top 70%",
     end: "top 30%",
     scrub: 2,
     scroller: ".smooth-scroll",

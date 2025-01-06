@@ -77,30 +77,3 @@ function workAnimation() {
 }
 
 workAnimation();
-
-gsap.from(".footer-left", {
-  x: "100%",
-  opacity: 0,
-  duration: 20,
-  stagger: 1,
-  scrollTrigger: {
-    trigger: ".footer-section",
-    start: "top 50%",
-    end: "top 30%",
-    scrub: 2,
-    scroller: ".smooth-scroll",
-  },
-});
-gsap.from(".footer-right", {
-  x: "-100%",
-  opacity: 0,
-  duration: 20,
-  stagger: 1,
-  scrollTrigger: {
-    trigger: ".footer-section",
-    start: "top 70%",
-    end: "top 30%",
-    scrub: 2,
-    scroller: ".smooth-scroll",
-  },
-});
