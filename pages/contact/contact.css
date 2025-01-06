@@ -9,7 +9,7 @@ html , body{
 }
 
 .mobile-nav.active {
-    top: 6%;
+    top: 100%;
 }
 
 .contact-hero{

@@ -40,6 +40,21 @@ function workAnimation() {
 
   workShow.forEach((work, index) => {
     const workImage = work.querySelectorAll(".work-image");
+    
+    gsap.from(work, {
+      opacity: 0,
+      x: "-100%",
+      duration: 1,
+      stagger: 1,
+      scrollTrigger: {
+        trigger: work,
+        start: "top 90%",
+        end: "top 30%",
+  
+        scroller: ".smooth-scroll",
+
+      }
+    });
     work.addEventListener("mouseenter", () => {
       gsap.to(workImage, {
         opacity: 1,
@@ -65,4 +80,29 @@ function workAnimation() {
 workAnimation();
 
 
-
+gsap.from(".footer-left",{
+  x: "100%",
+  opacity:0,
+  duration:20,
+  stagger:1,
+  scrollTrigger: {
+    trigger: ".footer-section",
+    start: "top 50%",
+    end: "top 30%",
+    scrub: 2,
+    scroller: ".smooth-scroll",
+  }
+})
+gsap.from(".footer-right",{
+  x: "-100%",
+  opacity:0,
+  duration:20,
+  stagger:1,
+  scrollTrigger: {
+    trigger: ".footer-section",
+    start: "top 70%",
+    end: "top 30%",
+    scrub: 2,
+    scroller: ".smooth-scroll",
+  }
+})

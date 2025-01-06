@@ -43,7 +43,6 @@ let tl = gsap.timeline({
     start: "top 0",
     end: "top -100%",
     pin: true,
-    markers: true,
     scrub: 0.9,
     scroller: ".smooth-scroll",
   },
@@ -79,7 +78,6 @@ let tlPage2 = gsap.timeline({
     start: "top 0%",
     end: window.innerWidth < 800 ? "top -100%" : "top -150%",
     pin: true,
-    markers: true,
     scrub: 0.9,
     scroller: ".smooth-scroll",
   },
@@ -114,3 +112,22 @@ function updateJoinUsAnimation() {
 
 window.addEventListener('resize', updateJoinUsAnimation);
 updateJoinUsAnimation();
+
+
+
+
+
+
+gsap.from(".our-story-container .text-lg-180, .our-story-section .text-sm-24",{
+  x: "-100%",
+  opacity:0,
+  duration:20,
+  stagger:1,
+  scrollTrigger: {
+    trigger: ".our-story-section",
+    start: "top 50%",
+    end: "top 30%",
+    scrub: 2,
+    scroller: ".smooth-scroll",
+  }
+})

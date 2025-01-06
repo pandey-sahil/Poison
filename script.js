@@ -16,8 +16,8 @@ function initLocomotiveScroll() {
     tablet: {
       smooth: true,
       breakpoint: 1024,
-      smoothMobile: true
-    }
+      smoothMobile: true,
+    },
   });
 
   // Sync Locomotive Scroll and ScrollTrigger
@@ -48,24 +48,33 @@ function initLocomotiveScroll() {
   return locoScroll;
 }
 
-
 function navAnime() {
   const navTrigger = document.querySelector(".navTrigger");
   const bars = document.querySelectorAll(".navTrigger i");
   const mobileNav = document.querySelector(".mobile-nav");
   const menu = document.querySelector(".menu");
   let isNavVisible = false;
-  
+
+  gsap.from(".nav", {
+    y: isMobile() ? "-50%" : "-100%",
+    opacity: 0,
+    duration: isMobile() ? 0.8 : 1.2,
+  });
+
   const navTl = gsap.timeline({ paused: true });
   navTl
     .to(bars[0], { y: 9, rotation: 135, duration: 0.3, ease: "power2.inOut" })
     .to(bars[1], { opacity: 0, duration: 0.3, ease: "power2.inOut" }, 0)
-    .to(bars[2], { y: -9, rotation: 45, duration: 0.3, ease: "power2.inOut" }, 0);
+    .to(
+      bars[2],
+      { y: -9, rotation: 45, duration: 0.3, ease: "power2.inOut" },
+      0
+    );
 
   menu.addEventListener("click", () => {
     navTrigger.classList.toggle("active");
     mobileNav.classList.toggle("active");
-    
+
     if (navTrigger.classList.contains("active")) {
       navTl.play();
       isNavVisible = true;
@@ -78,7 +87,6 @@ function navAnime() {
 
 navAnime();
 
-
 // Hero Slider with responsive handling
 function heroSlider() {
   const slider = document.querySelector(".hero-image-section");
@@ -87,9 +95,9 @@ function heroSlider() {
 
   function showNextImage() {
     currentIndex = (currentIndex + 1) % images.length;
-    
-    const translateValue = isMobile() ? `-${window.innerWidth}px` : '-100%';
-    
+
+    const translateValue = isMobile() ? `-${window.innerWidth}px` : "-100%";
+
     gsap.to(slider, {
       x: translateValue,
       duration: isMobile() ? 0.8 : 1,
@@ -110,12 +118,12 @@ function ballDrag() {
   let lastPosition = { x: 0, y: 0 };
 
   function updateDraggable() {
-    const bounds = isMobile() 
+    const bounds = isMobile()
       ? {
           top: 0,
           left: 0,
           width: window.innerWidth * 0.8,
-          height: window.innerHeight * 0.5
+          height: window.innerHeight * 0.5,
         }
       : container;
 
@@ -123,11 +131,11 @@ function ballDrag() {
       type: "x,y",
       bounds: bounds,
       inertia: true,
-      onDragStart: function() {
+      onDragStart: function () {
         gsap.killTweensOf(ball);
         velocity = { x: 0, y: 0 };
       },
-      onDrag: function() {
+      onDrag: function () {
         const currentPosition = { x: this.x, y: this.y };
         velocity = {
           x: currentPosition.x - lastPosition.x,
@@ -135,13 +143,13 @@ function ballDrag() {
         };
         lastPosition = currentPosition;
       },
-      onDragEnd: function() {
+      onDragEnd: function () {
         const multiplier = isMobile() ? 5 : 10;
         gsap.to(ball, {
           x: `+=${velocity.x * multiplier}`,
           y: `+=${velocity.y * multiplier}`,
           duration: isMobile() ? 0.5 : 1,
-          ease: "elastic.out(0.4, 0.2)"
+          ease: "elastic.out(0.4, 0.2)",
         });
       },
     });
@@ -160,7 +168,7 @@ function ballDrag() {
     gsap.set(ball, { x: newLeft, y: newTop });
   });
 
-  window.addEventListener('resize', updateDraggable);
+  window.addEventListener("resize", updateDraggable);
 }
 
 // Hero Text Animation
@@ -168,13 +176,12 @@ function animateHeroText() {
   gsap.from(".hero-text-container h1", {
     x: isMobile() ? "50%" : "100%",
     opacity: 0,
-    duration: isMobile() ? 0.7 : 0.9,
-    scrollTrigger: {
-      trigger: ".hero-text-container",
-      start: "top center",
-      end: "top 1%",
-      scroller: ".smooth-scroll",
-    },
+    duration: isMobile() ? 0.8 : 1.2,
+  });
+  gsap.from(".hero-slider-container", {
+    x: isMobile() ? "-50%" : "-100%",
+    opacity: 0,
+    duration: isMobile() ? 0.8 : 1.2,
   });
 }
 
@@ -207,6 +214,22 @@ function initPage2Animation() {
   });
 
   sections.forEach((section) => {
+    console.log(section);
+    const sectionText = section.querySelector(".pg2-image-text-overly");
+
+    gsap.from(sectionText, {
+      x: isMobile() ? -30 : -60,
+      opacity: 0,
+      duration: isMobile() ? 3 : 5,
+      scrollTrigger: {
+        trigger: section,
+        start: isMobile() ? "top 85%" : "top 80%",
+        scroller: ".smooth-scroll",
+  
+        end: isMobile() ? "top 40%" : "top 30%",
+      },
+    });
+
     timeline.to(section, {
       top: "0",
       duration: isMobile() ? 30 : 60,
@@ -273,9 +296,9 @@ function initMagnetCards() {
 
   gsap.registerPlugin(Draggable, ScrollTrigger);
 
-  droppables.forEach(droppable => {
+  droppables.forEach((droppable) => {
     let droppableContainer = droppable.closest(".magnet-card-container");
-    
+
     gsap.from(droppable, {
       y: isMobile() ? "50%" : "100%",
       duration: isMobile() ? 15 : 30,
@@ -288,7 +311,7 @@ function initMagnetCards() {
         end: isMobile() ? "top 20%" : "top 0%",
         scrub: isMobile() ? 3 : 6,
         scroller: ".smooth-scroll",
-      }
+      },
     });
 
     Draggable.create(droppable, {
@@ -296,14 +319,14 @@ function initMagnetCards() {
       bounds: bound,
       inertia: true,
       clearProps: "all",
-      onDragEnd: function() {
+      onDragEnd: function () {
         gsap.to(this.target, {
           duration: isMobile() ? 0.3 : 0.5,
           x: 0,
           y: 0,
           ease: "elastic.out(1, 0.3)",
         });
-      }
+      },
     });
   });
 }
@@ -314,7 +337,10 @@ function initTeamMarquee() {
   const items = document.querySelectorAll(".text-lg-184");
 
   marquee.innerHTML += marquee.innerHTML;
-  const totalWidth = Array.from(items).reduce((acc, item) => acc + item.offsetWidth, 0);
+  const totalWidth = Array.from(items).reduce(
+    (acc, item) => acc + item.offsetWidth,
+    0
+  );
 
   gsap.to(".our-team-marquee-bg", {
     x: -totalWidth,
@@ -343,5 +369,32 @@ function handleResize() {
 }
 
 // Event listeners
-window.addEventListener('load', init);
-window.addEventListener('resize', handleResize);
+window.addEventListener("load", init);
+window.addEventListener("resize", handleResize);
+
+gsap.from(".footer-left",{
+  x: "100%",
+  opacity:0,
+  duration:20,
+  stagger:1,
+  scrollTrigger: {
+    trigger: ".footer-section",
+    start: "top 50%",
+    end: "top 30%",
+    scrub: 2,
+    scroller: ".smooth-scroll",
+  }
+})
+gsap.from(".footer-right",{
+  x: "-100%",
+  opacity:0,
+  duration:20,
+  stagger:1,
+  scrollTrigger: {
+    trigger: ".footer-section",
+    start: "top 70%",
+    end: "top 30%",
+    scrub: 2,
+    scroller: ".smooth-scroll",
+  }
+})
