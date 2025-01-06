@@ -349,6 +349,21 @@ function initTeamMarquee() {
   });
 }
 
+gsap.from(".footer-section", {
+  x: "100%",
+  opacity: 0,
+  duration: 1,
+  stagger: 0.5,
+  scrollTrigger: {
+    trigger: ".footer-section",
+    start: "top 80%",
+    end: "top 50%",
+    scrub: 1,
+    scroller: ".smooth-scroll",
+  },
+});
+
+
 // Initialize everything
 function init() {
   initLocomotiveScroll();
@@ -370,17 +385,3 @@ function handleResize() {
 // Event listeners
 window.addEventListener("load", init);
 window.addEventListener("resize", handleResize);
-
-gsap.from(".footer-section", {
-  x: "100%",
-  opacity: 0,
-  duration: 20,
-  stagger: 1,
-  scrollTrigger: {
-    trigger: ".footer-section",
-    start: "top 50%",
-    end: "top 30%",
-    scrub: 2,
-    scroller: ".smooth-scroll",
-  },
-});
