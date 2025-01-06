@@ -9,8 +9,6 @@ body {
   width: 100%;
 }
 
-
-
 .nav-bar {
   width: 100%;
   padding: 26px;
@@ -23,9 +21,6 @@ body {
 .mobile-nav.active {
   top: 100%;
 }
-
-
-
 
 .about-hero {
   width: 100%;
