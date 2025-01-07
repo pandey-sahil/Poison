@@ -55,12 +55,7 @@ function navAnime() {
   const menu = document.querySelector(".menu");
   let isNavVisible = false;
 
-  gsap.from(".nav", {
-    y: isMobile() ? "-50%" : "-100%",
-    opacity: 0,
-    duration: isMobile() ? 0.8 : 1.2,
-  });
-
+ 
   const navTl = gsap.timeline({ paused: true });
   navTl
     .to(bars[0], { y: 9, rotation: 135, duration: 0.3, ease: "power2.inOut" })
@@ -173,6 +168,13 @@ function ballDrag() {
 
 // Hero Text Animation
 function animateHeroText() {
+  gsap.from(".nav", {
+    y: "-100%",
+    opacity: 0,
+    duration:1.2,
+  });
+
+
   gsap.from(".hero-text-container h1", {
     x: isMobile() ? "50%" : "100%",
     opacity: 0,
@@ -253,10 +255,11 @@ function marqueeAnimation() {
       ease: "none",
       scrollTrigger: {
         trigger: ".marquee-section",
-        start: isMobile() ? "top 90%" : "top 80%",
-        end: isMobile() ? "top -25%" : "top -50%",
+        start: "top 90%",
+        end:"top -25%",
         scrub: 2,
         scroller: ".smooth-scroll",
+        markers:true,
       },
     });
   });
@@ -267,10 +270,11 @@ function marqueeAnimation() {
     ease: "none",
     scrollTrigger: {
       trigger: ".marquee-section",
-      start: isMobile() ? "top 90%" : "top 80%",
-      end: isMobile() ? "top -25%" : "top -50%",
+      start: "top 90%",
+      end:"top -25%",
       scrub: 2,
       scroller: ".smooth-scroll",
+      markers:true,
     },
   });
 
@@ -349,39 +353,47 @@ function initTeamMarquee() {
   });
 }
 
+// Footer Animation
+function footerAnimation() {
+  gsap.from(".footer-wrapper", {
+    x: "-90%",
+    opacity: 0,
+    duration: 10,
+    scrollTrigger: {
+      trigger: ".footer-section",
+      start: "top 80%",
+      end: "top 50%",
+      scrub: 2,
+      scroller: ".smooth-scroll",
+      markers: true,
+    },
+  });
+}
+
 // Initialize everything
 function init() {
-  initLocomotiveScroll();
+  const locoScroll = initLocomotiveScroll();
+  navAnime();
   heroSlider();
   ballDrag();
   animateHeroText();
   initPage2Animation();
   marqueeAnimation();
-  initMagnetCards();
+  footerAnimation();
   initTeamMarquee();
+  
+  if(window.innerWidth > 768){
+    console.log("hello")
+    initMagnetCards()
+  }else{
+    
+  }
+  // Refresh Locomotive Scroll on resize
+  window.addEventListener("resize", () => {
+    locoScroll.update();
+    ScrollTrigger.refresh();
+  });
 }
 
-// Handle resize events
-function handleResize() {
-  ScrollTrigger.refresh();
-  init();
-}
-
-// Event listeners
+// Start animations on load
 window.addEventListener("load", init);
-window.addEventListener("resize", handleResize);
-
-gsap.from(".footer-section", {
-  x: "100%",
-  opacity: 0,
-  duration: 2,
-  stagger: 1,
-  scrollTrigger: {
-    trigger: "footer-section",
-    start: "top 50%",
-    end: "top 30%",
-    markers: true,
-    scrub: 2,
-    scroller: ".smooth-scroll",
-  },
-});

@@ -499,6 +499,7 @@ display: none;
   padding: 60px 40px;
   padding-right: 80px;
   color: #000;
+  width: 400px;
   transform: translate3d(0, 0);
   display: flex;
   flex-direction: column;
@@ -596,8 +597,12 @@ display: none;
 
 .footer-section {
   padding: 100px 80px;
+}
+
+.footer-wrapper{
   display: grid;
   grid-template-columns: 1fr 1fr;
+
 }
 
 .footer-left {
@@ -647,6 +652,14 @@ display: none;
 }
 
 .bottom-nav {
+  display: flex;
+  width: 95%;
+  align-items: end;
+  margin-top: 80px;
+  justify-content: end;
+  position: relative;
+}
+.bottom-nav .nav{
   display: flex;
   width: 95%;
   align-items: end;
@@ -984,7 +997,7 @@ display: none;
   }
 
   .magnet-card-section {
-    padding: 100px 0;
+    padding: 100px 40px;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -997,12 +1010,14 @@ display: none;
     flex-direction: column;
     align-items: center;
     gap: 26px;
+    width: 100%;
   }
 
   .magnet-card {
     background: #fff;
     padding: 60px 40px;
     padding-right: 80px;
+    width: 100%;
     color: #000;
     transform: translate3d(0, 0);
     display: flex;
@@ -1016,13 +1031,13 @@ display: none;
   }
 
   .card-svg-elem {
-    height: 250px;
-    width: 250px;
+    width: 100%;
   }
 
   .card-svg-elem img {
     height: 100%;
     width: 100%;
+    object-fit: contain;
   }
 
 
@@ -1099,11 +1114,16 @@ display: none;
 }
 
 .footer-section {
-  padding: 100px;
+  padding: 100px 50px;
+  gap: 100px;
+  background: rgb(255, 149, 149);
+  grid-template-columns: 1fr 1fr;
+}
+
+.footer-wrapper{
   display: flex;
   flex-direction: column;
-  gap: 100px;
-  grid-template-columns: 1fr 1fr;
+
 }
 
 .footer-left {
@@ -1159,7 +1179,7 @@ display: none;
 
 .bottom-nav {
   width: 100%;
-  padding: 50px ;
+  padding: 0 50px;
   padding-top: 0;
   align-items: end;
   margin-top: 0px;
@@ -1168,6 +1188,11 @@ display: none;
 }
 .bottom-nav .nav-links{
   display: flex;
+}
+.bottom-nav .nav{
+  opacity: 1;
+  width: 100%;
+  scale: 1;
 }
 .bottom-nav .nav{
   justify-content: end;
