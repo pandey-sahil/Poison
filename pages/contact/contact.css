@@ -12,7 +12,18 @@ body {
 .mobile-nav.active {
   top: 100%;
 }
+.smooth-scroll{
+}
 
+.nav-bar{
+  position: relative;
+
+}
+
+.mobile-nav.active {
+  top: 8%;
+  left: 0;
+}
 .contact-hero {
   background: rgb(0, 0, 0);
   display: flex;
