@@ -107,6 +107,10 @@ body {
   right: 20%;
 }
 
+.footer-contactus-elem h4{
+  text-transform: none;
+}
+
 @media (max-width: 768px) {
   * {
     margin: 0;
