@@ -259,7 +259,6 @@ function marqueeAnimation() {
         end:"top -25%",
         scrub: 2,
         scroller: ".smooth-scroll",
-        markers:true,
       },
     });
   });
@@ -274,7 +273,6 @@ function marqueeAnimation() {
       end:"top -25%",
       scrub: 2,
       scroller: ".smooth-scroll",
-      markers:true,
     },
   });
 
@@ -365,7 +363,6 @@ function footerAnimation() {
       end: "top 50%",
       scrub: 2,
       scroller: ".smooth-scroll",
-      markers: true,
     },
   });
 }
