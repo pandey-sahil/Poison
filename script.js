@@ -374,12 +374,13 @@ window.addEventListener("resize", handleResize);
 gsap.from(".footer-section", {
   x: "100%",
   opacity: 0,
-  duration: 20,
+  duration: 2,
   stagger: 1,
   scrollTrigger: {
-    trigger: ".footer-section",
+    trigger: "footer-section",
     start: "top 50%",
     end: "top 30%",
+    markers: true,
     scrub: 2,
     scroller: ".smooth-scroll",
   },
